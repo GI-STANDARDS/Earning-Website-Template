@@ -107,3 +107,14 @@ project-root/
    - Ping: `http://localhost:5000/api/misc/ping`
 
 
+## Helping Request
+- Provides support in building the project.
+
+- Assists in identifying and resolving issues.
+
+- Anyone receiving a helper or contributor tag is permitted to use the project with proper credit.
+
+- Helps me protect the project by reporting unauthorized reselling or misuse.
+
+- This project is not for sale, and its code may not be used commercially or redistributed as your own.
+
