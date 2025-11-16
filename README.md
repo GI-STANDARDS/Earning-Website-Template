@@ -116,8 +116,9 @@ ProjectRootDirectory/
 - Anyone receiving a helper or contributor tag is permitted to use the project with proper credit.
 
 - Helps me protect the project by reporting unauthorized reselling or misuse.
-- ![Not for Sale](https://img.shields.io/badge/This%20Project-NOT%20FOR%20SALE-red?style=for-the-badge)
+- ![Not for Sale](https://img.shields.io/badge/-THIS%20PROJECT%20IS%20NOT%20FOR%20SALE-red?style=for-the-badge)
 - Its code may not be used commercially or redistributed as your own.
+
 
 
 
