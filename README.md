@@ -116,8 +116,9 @@ ProjectRootDirectory/
 - Anyone receiving a helper or contributor tag is permitted to use the project with proper credit.
 
 - Helps me protect the project by reporting unauthorized reselling or misuse.
-- <span style="color:red">This project is not for sale</span>
+- <font color="red"><b>This project is not for sale</b></font>
 - Its code may not be used commercially or redistributed as your own.
+
 
 
 
