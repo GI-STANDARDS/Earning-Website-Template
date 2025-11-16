@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Task Referral Platform</title>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <h3>Dashboard</h3>
+      </div>
+      <ul class="sidebar-menu">
+        <li><a href="index.html" class="active">Overview</a></li>
+        <li><a href="tasks.html">Tasks</a></li>
+        <li><a href="plans.html">Plans</a></li>
+        <li><a href="referrals.html">Referrals</a></li>
+        <li><a href="account.html">Account</a></li>
+        <li><a href="settings.html">Settings</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+      <div class="dashboard-header">
+        <h1>Welcome Back, <span id="user-name-display">User</span>!</h1>
+        <p>Here's your dashboard overview</p>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-card-label">Available Balance</div>
+          <div class="stat-card-value" id="balance">$0.00</div>
+          <div class="stat-card-change positive">Ready to withdraw</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-card-label">Total Earned</div>
+          <div class="stat-card-value" id="total-earned">$0.00</div>
+          <div class="stat-card-change positive">Lifetime earnings</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-card-label">Tasks Completed</div>
+          <div class="stat-card-value" id="tasks-completed">0</div>
+          <div class="stat-card-change">This month</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-card-label">Referral Earnings</div>
+          <div class="stat-card-value" id="referral-earnings">$0.00</div>
+          <div class="stat-card-change positive">From referrals</div>
+        </div>
+      </div>
+
+      <!-- Content Grid -->
+      <div class="content-grid">
+        <!-- Recent Tasks -->
+        <div class="list-section">
+          <div class="list-header">
+            <h3>Available Tasks</h3>
+            <a href="tasks.html" class="btn btn-sm btn-outline">View All</a>
+          </div>
+          <div class="list-items" id="tasks-list">
+            <p style="padding: 1.5rem; text-align: center; color: #6b7280;">Loading...</p>
+          </div>
+        </div>
+
+        <!-- Referrals -->
+        <div class="list-section">
+          <div class="list-header">
+            <h3>My Referrals</h3>
+            <a href="referrals.html" class="btn btn-sm btn-outline">View All</a>
+          </div>
+          <div class="list-items" id="referrals-list">
+            <p style="padding: 1.5rem; text-align: center; color: #6b7280;">Loading...</p>
+          </div>
+        </div>
+
+        <!-- Subscription -->
+        <div class="list-section">
+          <div class="list-header">
+            <h3>Current Subscription</h3>
+            <a href="plans.html" class="btn btn-sm btn-outline">Change Plan</a>
+          </div>
+          <div id="subscription-info" style="padding: 1.5rem;">
+            <p style="color: #6b7280;">Loading subscription info...</p>
+          </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="list-section">
+          <div class="list-header">
+            <h3>Quick Actions</h3>
+          </div>
+          <div class="list-items">
+            <a href="tasks.html" class="list-item">
+              <div class="list-item-content">
+                <div class="list-item-title">Browse Tasks</div>
+                <div class="list-item-subtitle">Find new tasks to complete</div>
+              </div>
+              <div class="list-item-action">→</div>
+            </a>
+            <a href="referrals.html" class="list-item">
+              <div class="list-item-content">
+                <div class="list-item-title">Share Referral Code</div>
+                <div class="list-item-subtitle">Earn bonus from referrals</div>
+              </div>
+              <div class="list-item-action">→</div>
+            </a>
+            <a href="plans.html" class="list-item">
+              <div class="list-item-content">
+                <div class="list-item-title">Upgrade Plan</div>
+                <div class="list-item-subtitle">Get more benefits</div>
+              </div>
+              <div class="list-item-action">→</div>
+            </a>
+            <a href="account.html" class="list-item">
+              <div class="list-item-content">
+                <div class="list-item-title">Manage Account</div>
+                <div class="list-item-subtitle">Update your profile</div>
+              </div>
+              <div class="list-item-action">→</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Loading Indicator -->
+  <div id="loader" class="loader" style="display: none;">
+    <div class="spinner"></div>
+  </div>
+
+  <script src="../assets/js/global.js"></script>
+  <script src="../assets/js/api.js"></script>
+  <script src="../assets/js/auth.js"></script>
+  <script>
+    // Require authentication
+    requireAuth();
+
+    // Load dashboard data
+    async function loadDashboardData() {
+      try {
+        // Get user info
+        const user = getCurrentUser();
+        document.getElementById('user-name-display').textContent = user.firstName;
+
+        // Get user stats
+        const stats = await API.User.getDashboardStats();
+        document.getElementById('balance').textContent = formatCurrency(stats.stats.balance);
+        document.getElementById('total-earned').textContent = formatCurrency(stats.stats.totalEarned);
+        document.getElementById('referral-earnings').textContent = formatCurrency(stats.stats.referralEarnings);
+
+        // Get tasks
+        const tasks = await API.Task.getAll(1, 5);
+        const tasksList = document.getElementById('tasks-list');
+        if (tasks.data && tasks.data.length > 0) {
+          tasksList.innerHTML = tasks.data.map(task => `
+            <div class="list-item">
+              <div class="list-item-content">
+                <div class="list-item-title">${task.title}</div>
+                <div class="list-item-subtitle">Reward: ${formatCurrency(task.reward)}</div>
+              </div>
+              <div class="list-item-action">${formatCurrency(task.reward)}</div>
+            </div>
+          `).join('');
+        } else {
+          tasksList.innerHTML = '<p style="padding: 1.5rem; text-align: center; color: #6b7280;">No tasks available</p>';
+        }
+
+        // Get referrals
+        const referrals = await API.Referral.getMyReferrals(1, 5);
+        const referralsList = document.getElementById('referrals-list');
+        if (referrals.data && referrals.data.length > 0) {
+          referralsList.innerHTML = referrals.data.map(ref => `
+            <div class="list-item">
+              <div class="list-item-content">
+                <div class="list-item-title">${ref.referredUser.firstName} ${ref.referredUser.lastName}</div>
+                <div class="list-item-subtitle">${new Date(ref.createdAt).toLocaleDateString()}</div>
+              </div>
+              <span class="badge badge-${ref.status === 'verified' ? 'success' : 'warning'}">${ref.status}</span>
+            </div>
+          `).join('');
+        } else {
+          referralsList.innerHTML = '<p style="padding: 1.5rem; text-align: center; color: #6b7280;">No referrals yet. Share your code!</p>';
+        }
+
+        // Get subscription
+        const subscription = await API.Plan.getCurrentSubscription();
+        const subInfo = document.getElementById('subscription-info');
+        if (subscription.data.plan) {
+          subInfo.innerHTML = `
+            <div class="stat-box">
+              <div class="value">${subscription.data.plan.name}</div>
+              <div class="label">${subscription.data.status}</div>
+              ${subscription.data.expiresAt ? `<p style="margin: 0.5rem 0 0 0; font-size: 0.85rem;">Expires: ${formatDate(subscription.data.expiresAt)}</p>` : ''}
+            </div>
+          `;
+        } else {
+          subInfo.innerHTML = `
+            <p style="margin: 0;">No active subscription</p>
+            <a href="plans.html" class="btn btn-primary btn-sm" style="margin-top: 1rem;">Choose a Plan</a>
+          `;
+        }
+
+      } catch (error) {
+        console.error('Error loading dashboard:', error);
+        showNotification('Failed to load dashboard data', 'error');
+      }
+    }
+
+    // Load on page load
+    document.addEventListener('DOMContentLoaded', loadDashboardData);
+  </script>
+</body>
+</html>

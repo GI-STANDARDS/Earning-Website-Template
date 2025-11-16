@@ -1,0 +1,254 @@
+/**
+ * Forms and Input Styles
+ */
+
+/* Auth Container */
+.auth-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+}
+
+.auth-box {
+  background-color: var(--light-card);
+  padding: 2.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  max-width: 400px;
+}
+
+body.dark-mode .auth-box {
+  background-color: var(--dark-card);
+}
+
+.auth-box h1 {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.auth-box .subtitle {
+  text-align: center;
+  color: #6b7280;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+/* Form Groups */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--light-text);
+}
+
+body.dark-mode .form-group label {
+  color: var(--dark-text);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-family: inherit;
+  background-color: #f9fafb;
+  color: var(--light-text);
+  transition: var(--transition);
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea,
+body.dark-mode .form-group select {
+  background-color: #4b5563;
+  border-color: #6b7280;
+  color: var(--dark-text);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-group input[type="checkbox"],
+.form-group input[type="radio"] {
+  width: auto;
+  margin-right: 0.5rem;
+}
+
+.form-group.checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.form-group.checkbox label {
+  margin: 0;
+}
+
+/* Form Actions */
+.form-actions {
+  margin-top: 2rem;
+}
+
+.form-actions button {
+  font-size: 1rem;
+}
+
+/* Form Links */
+.form-links {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.form-links a {
+  color: var(--primary-color);
+}
+
+.form-links a:hover {
+  text-decoration: underline;
+}
+
+/* Form Help Text */
+.form-help {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin: 1rem 0;
+}
+
+/* Password Strength Indicator */
+.password-strength {
+  margin-top: 0.5rem;
+}
+
+.strength-meter {
+  height: 4px;
+  background-color: #e5e7eb;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.strength-bar {
+  height: 100%;
+  width: 0%;
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+.strength-bar.strength-weak {
+  width: 33%;
+  background-color: var(--danger-color);
+}
+
+.strength-bar.strength-medium {
+  width: 66%;
+  background-color: var(--warning-color);
+}
+
+.strength-bar.strength-strong {
+  width: 100%;
+  background-color: var(--success-color);
+}
+
+.strength-text {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* Success and Error Boxes */
+.success-box,
+.error-box {
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  margin-bottom: 1.5rem;
+}
+
+.success-box {
+  background-color: #d1fae5;
+  border: 1px solid #6ee7b7;
+  color: #065f46;
+}
+
+body.dark-mode .success-box {
+  background-color: #064e3b;
+  border-color: #10b981;
+  color: #d1fae5;
+}
+
+.error-box {
+  background-color: #fee2e2;
+  border: 1px solid #fca5a5;
+  color: #7f1d1d;
+}
+
+body.dark-mode .error-box {
+  background-color: #7f1d1d;
+  border-color: #ef4444;
+  color: #fee2e2;
+}
+
+.success-box h3,
+.error-box h3 {
+  margin-top: 0;
+}
+
+/* Demo Credentials */
+.demo-credentials {
+  background-color: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+}
+
+body.dark-mode .demo-credentials {
+  background-color: #0c4a6e;
+  border-color: #0284c7;
+}
+
+.demo-credentials p {
+  margin: 0.25rem 0;
+}
+
+.demo-credentials strong {
+  color: var(--primary-color);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .auth-box {
+    padding: 1.5rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}

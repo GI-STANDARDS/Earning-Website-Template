@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Referral Platform - Earn Money by Completing Tasks</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-brand">
+        <h2>Task Platform</h2>
+      </div>
+      <div class="navbar-menu">
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#how-it-works" class="nav-link">How It Works</a>
+        <a href="#pricing" class="nav-link">Plans</a>
+      </div>
+      <div id="auth-buttons" class="navbar-auth">
+        <a href="login.html" class="btn btn-secondary">Sign In</a>
+        <a href="register.html" class="btn btn-primary">Get Started</a>
+      </div>
+      <div id="user-menu" class="navbar-user" style="display: none;">
+        <span id="user-name"></span>
+        <a href="dashboard/index.html" class="btn btn-secondary btn-sm">Dashboard</a>
+        <a href="#" onclick="logout(); return false;" class="btn btn-outline btn-sm">Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Earn Money by Completing Tasks</h1>
+      <p>Complete simple tasks, earn rewards, and build your income through our referral program</p>
+      <div class="hero-actions">
+        <a href="register.html" class="btn btn-primary btn-large">Start Earning Now</a>
+        <a href="#how-it-works" class="btn btn-outline btn-large">Learn More</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <h3 id="stat-users">10K+</h3>
+          <p>Active Users</p>
+        </div>
+        <div class="stat">
+          <h3 id="stat-tasks">500+</h3>
+          <p>Available Tasks</p>
+        </div>
+        <div class="stat">
+          <h3 id="stat-earnings">$1M+</h3>
+          <p>Paid Out</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features">
+    <div class="container">
+      <h2>Why Choose Us?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3>Easy Tasks</h3>
+          <p>Complete simple tasks from surveys to app reviews in minutes</p>
+        </div>
+        <div class="feature-card">
+          <h3>Instant Rewards</h3>
+          <p>Get paid immediately after completing tasks and verification</p>
+        </div>
+        <div class="feature-card">
+          <h3>Referral Bonuses</h3>
+          <p>Earn extra money by referring friends to the platform</p>
+        </div>
+        <div class="feature-card">
+          <h3>Flexible Plans</h3>
+          <p>Choose a subscription plan that fits your goals and budget</p>
+        </div>
+        <div class="feature-card">
+          <h3>Safe & Secure</h3>
+          <p>Your data is protected with industry-standard encryption</p>
+        </div>
+        <div class="feature-card">
+          <h3>24/7 Support</h3>
+          <p>Our support team is always ready to help you succeed</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section id="how-it-works" class="how-it-works">
+    <div class="container">
+      <h2>How It Works</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Sign Up</h3>
+          <p>Create your free account in less than a minute</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Browse Tasks</h3>
+          <p>View available tasks and choose ones that interest you</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Complete Tasks</h3>
+          <p>Follow instructions and complete the task</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>Get Paid</h3>
+          <p>Earn rewards instantly and track your earnings</p>
+        </div>
+        <div class="step">
+          <div class="step-number">5</div>
+          <h3>Refer Friends</h3>
+          <p>Share your referral code and earn bonus rewards</p>
+        </div>
+        <div class="step">
+          <div class="step-number">6</div>
+          <h3>Withdraw</h3>
+          <p>Withdraw your earnings through various payment methods</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="pricing">
+    <div class="container">
+      <h2>Choose Your Plan</h2>
+      <div id="plans-container" class="plans-grid">
+        <!-- Plans will be loaded here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta">
+    <div class="container">
+      <h2>Ready to Start Earning?</h2>
+      <p>Join thousands of users who are already making money</p>
+      <a href="register.html" class="btn btn-primary btn-large">Get Started Free</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Task Referral Platform. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Contact Us</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Loading Indicator -->
+  <div id="loader" class="loader" style="display: none;">
+    <div class="spinner"></div>
+  </div>
+
+  <script src="assets/js/global.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script>
+    // Load plans on page load
+    async function loadPlans() {
+      try {
+        const response = await API.Plan.getAll();
+        const container = document.getElementById('plans-container');
+        
+        if (response.data && response.data.length > 0) {
+          container.innerHTML = response.data.map(plan => `
+            <div class="plan-card ${plan.popular ? 'popular' : ''}">
+              ${plan.popular ? '<div class="badge">Popular</div>' : ''}
+              <h3>${plan.name}</h3>
+              <p class="plan-price">${formatCurrency(plan.price)}<span>/month</span></p>
+              <p class="plan-description">${plan.description}</p>
+              <div class="plan-features">
+                ${plan.features.map(f => `<li>✓ ${f}</li>`).join('')}
+              </div>
+              <a href="register.html" class="btn btn-primary btn-block">Get Started</a>
+            </div>
+          `).join('');
+        }
+      } catch (error) {
+        console.error('Error loading plans:', error);
+      }
+    }
+
+    // Load on page load
+    document.addEventListener('DOMContentLoaded', loadPlans);
+  </script>
+</body>
+</html>

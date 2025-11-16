@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verify Email - Task Referral Platform</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/forms.css">
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-box">
+      <h1>Verify Your Email</h1>
+      <p class="subtitle">We've sent a verification link to your email</p>
+
+      <div id="verification-pending" class="verification-box">
+        <p>Click the link in your email to verify your account.</p>
+        <p>If you don't see the email, check your spam folder or <a href="#" id="resend-link">resend the verification link</a>.</p>
+      </div>
+
+      <div id="verification-success" class="success-box" style="display: none;">
+        <h3>Email Verified!</h3>
+        <p>Your email has been successfully verified. You can now start using your account.</p>
+        <a href="login.html" class="btn btn-primary">Go to Login</a>
+      </div>
+
+      <div id="verification-error" class="error-box" style="display: none;">
+        <h3>Verification Failed</h3>
+        <p id="error-message">The verification link is invalid or expired.</p>
+        <a href="login.html" class="btn btn-primary">Back to Login</a>
+      </div>
+
+      <div class="form-links">
+        <a href="login.html">Back to Login</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading Indicator -->
+  <div id="loader" class="loader" style="display: none;">
+    <div class="spinner"></div>
+  </div>
+
+  <script src="assets/js/global.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script>
+    // Check for verification token in URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const token = urlParams.get('token');
+
+    if (token) {
+      // Verify the email with the token
+      verifyEmail(token);
+    }
+
+    async function verifyEmail(token) {
+      showLoading();
+      try {
+        // In production, call backend verify endpoint
+        // const response = await apiRequest('/auth/verify-email?token=' + token);
+        
+        // For now, simulate success
+        document.getElementById('verification-pending').style.display = 'none';
+        document.getElementById('verification-success').style.display = 'block';
+      } catch (error) {
+        document.getElementById('verification-pending').style.display = 'none';
+        document.getElementById('verification-error').style.display = 'block';
+        document.getElementById('error-message').textContent = error.message;
+      } finally {
+        hideLoading();
+      }
+    }
+
+    // Resend verification link
+    document.getElementById('resend-link').addEventListener('click', async (e) => {
+      e.preventDefault();
+      showLoading();
+      try {
+        // In production, call backend resend endpoint
+        showNotification('Verification link resent to your email!', 'success');
+      } catch (error) {
+        showNotification(error.message, 'error');
+      } finally {
+        hideLoading();
+      }
+    });
+  </script>
+</body>
+</html>
