@@ -33,7 +33,7 @@ I’d like to thank **GitHub Copilot** for its assistance in **understanding** a
 ## Project Structure
 
 ```
-project-root/
+ProjectRootDirectory/
 ├── backend/
 │   ├── config/         # Database, server, security config
 │   ├── routes/         # API endpoints
@@ -66,7 +66,8 @@ project-root/
 
 1. **Clone or navigate to project:**
    ```bash
-   cd C:\Users\window\Desktop\VS-AI\Projects\Python\Web\project-root
+   cd C:\path\to\ProjectRootDirectory
+
    ```
 
 2. **Install dependencies:**
@@ -83,7 +84,7 @@ project-root/
    ```
    NODE_ENV=development
    PORT=5000
-   MONGODB_URI=mongodb://localhost:27017/task-referral-platform
+   MONGODB_URI=mongodb://localhost:PORT/Your-Custom-Project-Name
    JWT_SECRET=your-secret-key-here
    EMAIL_USER=your-email@gmail.com
    EMAIL_PASS=your-app-password
@@ -117,4 +118,5 @@ project-root/
 - Helps me protect the project by reporting unauthorized reselling or misuse.
 
 - This project is not for sale, and its code may not be used commercially or redistributed as your own.
+
 
