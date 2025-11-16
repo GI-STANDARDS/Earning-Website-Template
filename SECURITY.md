@@ -10,5 +10,5 @@
 | < 4.0   | :x:                |
 
 ## Reporting a Vulnerability
-+ Security Policy: This project is actively maintained in a production environment. Users may encounter occasional errors or changes as updates are implemented.
+![Security Policy](https://img.shields.io/badge/Security%20Policy-This%20project%20is%20actively%20maintained%20in%20a%20production%20environment-red?style=for-the-badge)
 
