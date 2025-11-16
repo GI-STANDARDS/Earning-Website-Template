@@ -1,7 +1,8 @@
 # Task Referral Platform
 
 A comprehensive full-stack application for task management, user referrals, subscription plans, and admin controls.
-// I’d like to thank GitHub Copilot for its assistance in understanding and resolving errors, as well as helping in building the project.
+
+I’d like to thank **GitHub Copilot** for its assistance in **understanding** and **resolving** errors, as well as helping in **building the project**.
 
 ## Features
 
@@ -104,4 +105,5 @@ project-root/
    - Health check: `http://localhost:5000/api/health`
    - Status: `http://localhost:5000/api/status`
    - Ping: `http://localhost:5000/api/misc/ping`
+
 
