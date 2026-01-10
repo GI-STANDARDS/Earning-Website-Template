@@ -24,17 +24,12 @@ I’d like to thank **GitHub Copilot** for its assistance in **understanding** a
 
 ### Setup Instructions
 
-1. **Clone or navigate to project:**
+1. **Clone project:**
    ```bash
-   cd C:\path\to\ProjectRootDirectory
+   git clone https://github.com/GI-STANDARDS/Earning-Website-Template/
 
    ```
-
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-
+   
 3. **Create .env file:**
    ```bash
    cp .env.example .env
@@ -53,4 +48,3 @@ I’d like to thank **GitHub Copilot** for its assistance in **understanding** a
 
 ## ![Request](https://img.shields.io/badge/-HOW%20TO%20CONTRIBUTE-blue?style=for-the-badge)
 - Updating soon, stay connected
-
