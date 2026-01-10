@@ -49,18 +49,8 @@ I’d like to thank **GitHub Copilot** for its assistance in **understanding** a
    EMAIL_USER=your-email@gmail.com
    EMAIL_PASS=your-app-password
    ```
-
-5. **Make sure MongoDB is running:**
-   ```bash
-   mongod
-   ```
-
-6. **Start backend server:**
-   ```bash
-   npm run dev
-   ```
-
    Server will run on: `http://localhost:5000`
 
-## ![Request](https://img.shields.io/badge/-HOW%20TO%20CNTRIBUTE-blue?style=for-the-badge)
+## ![Request](https://img.shields.io/badge/-HOW%20TO%20CONTRIBUTE-blue?style=for-the-badge)
 - Updating soon, stay connected
+
