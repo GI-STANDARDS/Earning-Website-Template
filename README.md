@@ -1,19 +1,8 @@
-# Task Referral Platform
+# Task Referral Platform ![Not for Sale](https://img.shields.io/badge/-THIS%20PROJECT%20IS%20NOT%20FOR%20SALE-red?style=for-the-badge)
 
 A comprehensive full-stack application for task management, user referrals, subscription plans, and admin controls.
 
 I’d like to thank **GitHub Copilot** for its assistance in **understanding** and **resolving** errors, as well as helping in **building the project**.
-
-## Features
-
-✅ User authentication with JWT  
-✅ Unique referral codes & tracking  
-✅ Task completion system  
-✅ Subscription plans & payments  
-✅ Admin dashboard & controls  
-✅ Security: password hashing, rate limiting, validation  
-✅ Responsive frontend with dark/light mode  
-✅ Activity logging & analytics  
 
 ## Tech Stack
 
@@ -21,39 +10,10 @@ I’d like to thank **GitHub Copilot** for its assistance in **understanding** a
 - Node.js + Express.js
 - MongoDB (Mongoose ODM)
 - JWT Authentication
-- bcryptjs for password hashing
-- express-rate-limit for security
 
 **Frontend:**
 - HTML5 / CSS3
 - Vanilla JavaScript
-- Responsive design
-- Dark/Light mode support
-
-## Project Structure
-
-```
-ProjectRootDirectory/
-├── backend/
-│   ├── config/         # Database, server, security config
-│   ├── routes/         # API endpoints
-│   ├── controllers/    # Business logic (coming soon)
-│   ├── models/         # Database schemas (coming soon)
-│   ├── middlewares/    # Auth, validation, error handling
-│   ├── utils/          # Helpers (token, password, validation)
-│   ├── cron/           # Scheduled tasks (coming soon)
-│   ├── tests/          # Unit tests (coming soon)
-│   └── server.js       # Express app entry
-├── frontend/
-│   ├── index.html      # Landing page
-│   ├── login.html      # Login page
-│   ├── register.html   # Registration page
-│   ├── dashboard/      # User dashboard
-│   ├── admin/          # Admin panel
-│   ├── assets/         # CSS, JS, Images
-│   └── components/     # Reusable HTML components
-└── docs/               # API documentation
-```
 
 ## Installation
 
@@ -102,28 +62,5 @@ ProjectRootDirectory/
 
    Server will run on: `http://localhost:5000`
 
-7. **Test the API:**
-   - Health check: `http://localhost:5000/api/health`
-   - Status: `http://localhost:5000/api/status`
-   - Ping: `http://localhost:5000/api/misc/ping`
-
-
-## Helping Request
-- Provides support in building the project.
-
-- Assists in identifying and resolving issues.
-
-- Anyone receiving a helper or contributor tag is permitted to use the project with proper credit.
-
-- Helps me protect the project by reporting unauthorized reselling or misuse.
-  
-- Its code may not be used commercially or redistributed as your own.
-  
-![Not for Sale](https://img.shields.io/badge/-THIS%20PROJECT%20IS%20NOT%20FOR%20SALE-red?style=for-the-badge)
-
-
-
-
-
-
-
+## ![Request](https://img.shields.io/badge/-HOW%20TO%20CNTRIBUTE-blue?style=for-the-badge)
+- Updating soon, stay connected
