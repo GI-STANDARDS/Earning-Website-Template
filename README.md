@@ -1,4 +1,4 @@
-![Not for Sale](https://img.shields.io/badge/-THIS%20PROJECT%20IS%20NOT%20FOR%20SALE-red?style=for-the-badge)
+![Not for Sale Neither for comercial use](https://img.shields.io/badge/-THIS%20PROJECT%20IS%20NOT%20FOR%20SALE-red?style=for-the-badge)
 
 A comprehensive full-stack application for task management, user referrals, subscription plans, and admin controls. I’d like to thank **GitHub Copilot** for its assistance in **understanding** and **resolving** errors, as well as helping in **building the project**.
 
