@@ -1,4 +1,4 @@
-![Not for Sale Neither for comercial use](https://img.shields.io/badge/-THIS%20PROJECT%20IS%20NOT%20FOR%20SALE-red?style=for-the-badge)
+![Not for Sale Neither for comercial use](https://img.shields.io/badge/-THIS%20PROJECT%20IS%20IS%NOT%20PRODUCTION%20READY-red?style=for-the-badge)
 
 A comprehensive full-stack application for task management, user referrals, subscription plans, and admin controls. I’d like to thank **GitHub Copilot** for its assistance in **understanding** and **resolving** errors, as well as helping in **building the project**.
 
@@ -44,7 +44,6 @@ A comprehensive full-stack application for task management, user referrals, subs
    ```
    Server will run on: `http://localhost:5000`
 
-## ![Request](https://img.shields.io/badge/-HOW%20TO%20CONTRIBUTE-blue?style=for-the-badge)
-- Updating soon, stay connected
+## ![Request](https://img.shields.io/badge/-%20CONTRIBUTE-blue?style=for-the-badge)
 
 
