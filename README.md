@@ -1,4 +1,4 @@
-![THIS PROJECT IS NOT PRODUCTION READY](https://img.shields.io/badge/THIS_PROJECT_IS_NOT_PRODUCTION_READY-red?style=for-the-badge&labelColor=red&color=red)
+![THIS PROJECT IS NOT PRODUCTION READY](https://img.shields.io/badge/THIS%20PROJECT%20IS%20NOT%20PRODUCTION%20READY-red?style=for-the-badge)
 A comprehensive full-stack application for task management, user referrals, subscription plans, and admin controls. I’d like to thank **GitHub Copilot** for its assistance in **understanding** and **resolving** errors, as well as helping in **building the project**.
 
 ## Tech Stack
